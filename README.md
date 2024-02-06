@@ -19,4 +19,4 @@ In this challenge we are doing the back end of a shopping online website. We are
     - https://sequelize.org/docs/v6/core-concepts/validations-and-constraints/
 
 ## Project Links.
-    
+    https://github.com/Shawki45/Online-Shopping.git
