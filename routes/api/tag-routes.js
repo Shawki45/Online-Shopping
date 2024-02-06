@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   // find a single tag by its `id`
-  // be sure to include its associated Product data
+  // be sure to include its associated Tag data
   try{
     const tagData = await Tag.findByPk();
     res.status(200).json(tagData);
@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
   // create a new tag
   Tag.create(req.body)
     .then((product) => {
-      // if there's product tags, we need to create pairings to bulk create in the ProductTag model
+      // if there's  tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
         const TagIdArr = req.body.tagIds.map((tag_id) => {
           return {
@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
         });
         return Tag.bulkCreate(TagIdArr);
       }
-      // if no product tags, just respond
+      // if no tags, just respond
       res.status(200).json(tag);
     })
     .then((TagIds) => res.status(200).json(TagIds))
